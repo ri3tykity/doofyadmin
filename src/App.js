@@ -5,6 +5,7 @@ import jsonServerProvider from "ra-data-json-server";
 import { EmployeeList } from '../src/components/Employee/Employee';
 import { EmpEdit } from '../src/components/EmpEdit/EmpEdit';
 import { EmpCreate } from '../src/components/EmpCreate/EmpCreate'
+import AuthProvider from '../src/components/AuthProvider/AuthProvider'
 
 const dataProvider = jsonServerProvider("https://my-json-server.typicode.com/debojyotichatterjee9/myjsonserver");
 
@@ -13,7 +14,7 @@ class App extends Component {
     render() {
     return (
       <div className="App">
-        <Admin dataProvider={ dataProvider }>
+        <Admin dataProvider={ dataProvider } authProvider={ AuthProvider }>
           <Resource name="employees" list={ EmployeeList } edit={ EmpEdit } create={ EmpCreate }/>  
           </Admin>
       </div>
